@@ -1,0 +1,51 @@
+﻿@model Framework.Desafio.Model.Entidade.Paciente
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h4>Editar Paciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" data-val="true" data-val-required="O Nome é obrigatório" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPF" class="control-label"></label>
+                <input asp-for="CPF" class="form-control" onkeypress="$(this).mask('000.000.000-00');" data-val="true" data-val-required="O CPF é obrigatório" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaisId" class="control-label"></label>
+                <select asp-for="PaisId" class="form-control" asp-items="ViewBag.PaisId" id="SelectPais"></select>
+                <span asp-validation-for="PaisId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoId" class="control-label"></label>
+                <select asp-for="EstadoId" class="form-control" asp-items="ViewBag.EstadoId" id="SelectEstado"></select>
+                <span asp-validation-for="EstadoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CidadeId" class="control-label"></label>
+                <select asp-for="CidadeId" class="form-control" asp-items="ViewBag.CidadeId" id="SelectCidade"></select>
+                <span asp-validation-for="CidadeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
+                <a asp-action="Index" class="btn btn-secondary btn-sm">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/scripts/Paciente/paciente.js"></script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

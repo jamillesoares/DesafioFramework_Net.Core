@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Infraestrutura\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Repositorio\**" />
+    <Content Remove="Infraestrutura\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="Repositorio\**" />
+    <EmbeddedResource Remove="Infraestrutura\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Repositorio\**" />
+    <None Remove="Infraestrutura\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Repositorio\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Context\AppDbContext.cs" />
+    <Compile Remove="Models\Cidade.cs" />
+    <Compile Remove="Models\Estado.cs" />
+    <Compile Remove="Models\Paciente.cs" />
+    <Compile Remove="Models\Pais.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0-preview1.19506.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0-preview1-19509-03" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Context\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Desafio.Repository\Framework.Desafio.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

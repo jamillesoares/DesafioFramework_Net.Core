@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Framework.Desafio.Model.Entidade.Cidade>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cidades</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-sm">Novo Cadastro</a>
+</p>
+<table class="table table-responsive-sm table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado.Descricao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
